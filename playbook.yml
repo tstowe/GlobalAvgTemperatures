@@ -1,0 +1,44 @@
+---
+- hosts: web
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars.yml
+  gather_facts: false
+      
+  tasks:
+   - name: Install required system packages
+     apt: pkg={{ item }} state=installed update-cache=yes
+     with_items: "{{ system_packages }}"
+   
+   - name: Install required Python packages
+     pip: name={{ item }}
+     with_items: "{{ python_packages }}"
+   
+   - name: Install libffi package
+     apt: name=libffi-dev state=present
+   
+   - name: Create Database and Import SQL Data into Database
+     command: sqlite3 tempdata.db -init GlobalAvgTempMajorCities.sql
+   
+   - name: Copy caravel-config to PYTHONPATH
+     command: cp /vagrant/common/files/caravel_config.py /usr/lib/python2.7/
+     
+   - name: Clone git repository
+     git: >
+      dest=/var/www/caravel
+      repo=https://github.com/airbnb/caravel.git
+      update=no
+   
+   - name: Install caravel
+     pip: name=caravel state=present
+     
+   - name: Create default admin user
+     command: fabmanager create-admin --username admin --firstname admin --lastname user --email admin@fab.org --password password --app caravel
+     
+   - name: Initialize database for caravel
+     command: caravel db upgrade
+     
+   - name: Create default roles
+     command: caravel init
+     

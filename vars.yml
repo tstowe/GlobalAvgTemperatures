@@ -1,0 +1,14 @@
+---
+project_name: myproject
+system_packages:
+  - build-essential
+  - postgresql
+  - postgresql-server-dev-all
+  - mysql-server
+  - sqlite3
+  - libsqlite3-dev  
+  - python-setuptools
+
+python_packages:
+  - numpy
+  - pydruid
