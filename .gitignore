@@ -1,0 +1,13 @@
+# Vagrant
+.vagrant/
+
+#Ansible
+.retry
+
+# Python
+bin/
+build/
+include/
+lib/
+local/
+.pyc
