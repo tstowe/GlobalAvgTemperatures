@@ -4,24 +4,22 @@ This is an automated deployment of a web app built using [Caravel](https://githu
 This build utilizes Vagrant for virtualization and Ansible for provisioning.
 
 Required:
-Vagrant
-VirtualBox
+-Vagrant
+-VirtualBox
 
 If using Windows:
-[Vagrant-Ansible Plugin](https://github.com/vovimayhem/vagrant-guest_ansible)
-Cygwin
+-[Vagrant-Ansible Plugin](https://github.com/vovimayhem/vagrant-guest_ansible)
+-Cygwin
 
 Installation Instructions:
-Navigate to the directory in your terminal and enter 
-`vagrant up`
+In your directory
+>`vagrant up`
 
+When Ansible completes provisioning
+> `vagrant ssh`
 
-
-When Ansible completes provisioning, Enter 
-`vagrant ssh`
-
-This will load the dashboard, then Enter
-`sudo caravel runserver`
+This will load the app
+> `sudo caravel runserver`
 
 Navigate to
-Localhost:8080
+>localhost:8080
