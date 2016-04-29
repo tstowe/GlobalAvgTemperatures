@@ -28,11 +28,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			ansible.verbose = true
 		end
 	else
-		config.vm.provision :ansible do |ansible|
+		config.vm.provision "ansible" do |ansible|
+		    ansible.verbose = true
 			ansible.playbook = "playbook.yml"
-			ansible.inventory_file = "ansible/hosts"
 			ansible.sudo = true
-			ansible.verbose = true
 		end
     end
 	  
