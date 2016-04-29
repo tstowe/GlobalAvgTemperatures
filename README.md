@@ -9,10 +9,9 @@ This build utilizes Vagrant for virtualization and Ansible for provisioning.
 ### Required:
 - [Vagrant](https://www.vagrantup.com/)
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-- [Ansible](http://docs.ansible.com/ansible/intro_installation.html) 
-
-###### Ansible will not work on Windows, you will need these additional requirements for running on Windows:
 - [Vagrant-Ansible Plugin](https://github.com/vovimayhem/vagrant-guest_ansible)
+
+###### For running on Windows:
 - [Cygwin](https://www.cygwin.com/)
 
 ### Installation Instructions:
@@ -35,4 +34,5 @@ This build utilizes Vagrant for virtualization and Ansible for provisioning.
 ### Known Issues:
 - This build of Caravel is not connecting to the .db file properly, meaning Caravel loads as a blank slate.
 - Automating the last step (running the server) causes Ansible to enter an infinite loop, so additional installation instructions were added above as a workaround.
+- Using a local install of Ansible instead of the linked plugin causes issues with provisioning.
 - Tests coming soon
