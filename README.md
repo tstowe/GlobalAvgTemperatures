@@ -29,8 +29,8 @@ This build utilizes Vagrant for virtualization and Ansible for provisioning.
 >localhost:8080
 
 5. Login with 
-* Username: admin
-* Password: password
+>- Username: admin
+>- Password: password
 
 ### Known Issues:
 - This build of Caravel is not connecting to the .db file properly, meaning Caravel loads as a blank slate.
