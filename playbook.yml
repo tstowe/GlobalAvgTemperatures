@@ -17,12 +17,9 @@
    
    - name: Install libffi package
      apt: name=libffi-dev state=present
-   
-   - name: Create Database and Import SQL Data into Database
-     command: sqlite3 tempdata.db -init GlobalAvgTempMajorCities.sql
-   
-   - name: Copy caravel-config to PYTHONPATH
-     command: cp /vagrant/common/files/caravel_config.py /usr/lib/python2.7/
+     
+   - name: Copy caravel-config to PYTHONPATH 1
+     command: cp /vagrant/common/files/caravel_config.py /usr/lib/python2.7/ 
      
    - name: Clone git repository
      git: >
@@ -41,4 +38,7 @@
      
    - name: Create default roles
      command: caravel init
+     
+  # - name: Run server
+  #   command: caravel runserver
      
